@@ -23,14 +23,14 @@ public class AdminController {
     }
 
     @PostMapping("/new-user")
-    public String addUser(User user) {// new user
+    public String addUser(User user) {
         service.createUser(user);
         return "redirect:/admin";
     }
 
     @RequestMapping
-    public String getUsers(Model model) {// все юзеры
-        model.addAttribute("users", service.getUsers());// +
+    public String getUsers(Model model) {
+        model.addAttribute("users", service.getUsers());
         return "admin";
     }
 
@@ -42,14 +42,13 @@ public class AdminController {
     }
 
     @PostMapping("/update-user")
-    public String updateUser(User user) {// апдейт
+    public String updateUser(User user) {
         service.updateUser(user);
         return "redirect:/admin";
     }
 
     @GetMapping("/delete-user/{id}")
-    //public String deleteUser (@PathVariable Long id) { // удалить
-    public String deleteUser(@PathVariable("id") Long id) { // удалить
+    public String deleteUser(@PathVariable("id") Long id) {
         service.deleteUser(id);
         return "redirect:/admin";
     }

@@ -19,7 +19,8 @@ public class SecurityConfig {
     private final UserDetailsService userDetailsService;
     private final SuccessUserHandler successUserHandler;
 
-    public SecurityConfig(@Qualifier("userDetailsServiceImpl") UserDetailsService userDetailsService, SuccessUserHandler successUserHandler) {
+    public SecurityConfig(@Qualifier("userService") UserDetailsService userDetailsService,
+                          SuccessUserHandler successUserHandler) {
         this.userDetailsService = userDetailsService;
         this.successUserHandler = successUserHandler;
     }
